@@ -4,17 +4,17 @@
 <table>
   <tr>
     <th>Manga</th>
-    <th></th>
-    <th></th>
+    <th>Last Release</th>
+    <th>Time</th>
     <th></th>
   </tr>
 
 <% @subscriptions.each do |subscription| %>
   <tr>
-    <td><%= subscription.manga_id %></td>
-    <td><%= link_to 'Show', subscription %></td>
-    <td><%= link_to 'Edit', edit_subscription_path(subscription) %></td>
-    <td><%= link_to 'Destroy', subscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= subscription.manga.display_name %></td>
+		<td><%=link_to subscription.manga.last_chapter.nb,subscription.manga.last_chapter.link%></td>
+		<td><%=time_ago_in_words(subscription.manga.last_chapter.date) + " ago"%></td>
+		<td><%= link_to 'X', subscription_path(subscription),:confirm=>"Unsubscribe ?",:method=>:delete%></td>
   </tr>
 <% end %>
 </table>
@@ -23,4 +23,4 @@
 	You have no subscriptions !
 <%end%>
 <br />
-<%= link_to 'New Subscription', new_subscription_path %>
+<%= link_to 'Add Subscriptions', mangas_path %>
