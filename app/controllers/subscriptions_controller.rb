@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
 	before_filter :authenticate_user!
+	before_filter :out, :except=>[:index,:create,:destroy]
   # GET /subscriptions
   # GET /subscriptions.json
   def index

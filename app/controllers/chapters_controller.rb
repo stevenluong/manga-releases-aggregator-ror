@@ -1,4 +1,5 @@
 class ChaptersController < ApplicationController
+	before_filter :out
   # GET /chapters
   # GET /chapters.json
   def index

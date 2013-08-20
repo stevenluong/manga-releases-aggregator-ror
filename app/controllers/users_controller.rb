@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
 	before_filter :out  
-	def out
-    if current_user.id!=1
-      redirect_to root_path
-		end
-	end
+	
   # GET /users
   # GET /users.json
   def index

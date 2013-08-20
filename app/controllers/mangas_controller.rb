@@ -1,4 +1,5 @@
 class MangasController < ApplicationController
+	before_filter :out, :except=>[:index]
   # GET /mangas
   # GET /mangas.json
   def index
