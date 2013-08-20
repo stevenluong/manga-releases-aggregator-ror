@@ -5,10 +5,9 @@
     <th>Manga</th>
     <th>Display name</th>
     <th>Last release</th>
+    <th>Time</th>
 	<%if user_signed_in? %>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Action</th>
 	<%end%>
   </tr>
 
@@ -16,7 +15,13 @@
   <tr>
     <td><%= manga.name %></td>
     <td><%= manga.display_name %></td>
+		<%if manga.chapters.any?%>
 		<td><%=link_to manga.last_chapter.nb,manga.last_chapter.link%></td>
+		<td><%=time_ago_in_words(manga.last_chapter.date) + " ago"%></td>
+		<%else%>
+		<td>No release</td>
+		<td></td>
+		<%end%>
 	<%if user_signed_in? %>
 		<%if !current_user.has_subscribe(manga)%>
 			<td><%= link_to 'Subscribe', subscriptions_path(:manga_id=>manga.id),:method=>:post %></td>

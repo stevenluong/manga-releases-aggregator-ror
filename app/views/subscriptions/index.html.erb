@@ -12,8 +12,13 @@
 <% @subscriptions.each do |subscription| %>
   <tr>
     <td><%= subscription.manga.display_name %></td>
+		<%if subscription.manga.chapters.any?%>
 		<td><%=link_to subscription.manga.last_chapter.nb,subscription.manga.last_chapter.link%></td>
 		<td><%=time_ago_in_words(subscription.manga.last_chapter.date) + " ago"%></td>
+    <%else%>
+		<td>No release</td>
+		<td></td>
+		<%end%>
 		<td><%= link_to 'X', subscription_path(subscription),:confirm=>"Unsubscribe ?",:method=>:delete%></td>
   </tr>
 <% end %>
@@ -22,5 +27,6 @@
 <%else%>
 	You have no subscriptions !
 <%end%>
+<br />
 <br />
 <%= link_to 'Add Subscriptions', mangas_path %>

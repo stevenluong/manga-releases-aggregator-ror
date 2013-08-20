@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+	before_filter :out  
+	def out
+    if current_user.id!=1
+      redirect_to root_path
+		end
+	end
   # GET /users
   # GET /users.json
   def index
@@ -56,6 +62,9 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
+    if current_user.id!=1
+      redirect_to root_path
+		end
     @user = User.find(params[:id])
 
     respond_to do |format|
