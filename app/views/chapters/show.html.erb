@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @chapter.date %>
+</p>
+
+<p>
+  <b>Nb:</b>
+  <%= @chapter.nb %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @chapter.link %>
+</p>
+
+<p>
+  <b>Manga:</b>
+  <%= @chapter.manga_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
+<%= link_to 'Back', chapters_path %>

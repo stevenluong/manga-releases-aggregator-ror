@@ -1,0 +1,30 @@
+<h1>Last Releases</h1>
+
+<table>
+  <tr>
+    <th>Manga</th>
+    <th>Display name</th>
+    <th>Last release</th>
+	<%if user_signed_in? %>
+    <th></th>
+    <th></th>
+    <th></th>
+	<%end%>
+  </tr>
+
+<% @mangas.each do |manga| %>
+  <tr>
+    <td><%= manga.name %></td>
+    <td><%= manga.display_name %></td>
+		<td><%=link_to manga.last_chapter.nb,manga.last_chapter.link%></td>
+	<%if user_signed_in? %>
+		<%if !current_user.has_subscribe(manga)%>
+			<td><%= link_to 'Subscribe', subscriptions_path(:manga_id=>manga.id),:method=>:post %></td>
+	<%else%>
+		<td><%= link_to 'X', subscription_path(Subscription.get(current_user,manga)),:confirm=>"Unsubscribe ?",:method=>:delete%></td>
+	<%end%>
+	<%end%>
+  </tr>
+<% end %>
+</table>
+<br />
