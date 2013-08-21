@@ -8,6 +8,7 @@ RailsApp::Application.routes.draw do
   resources :mangas
 
   resources :chapters
+
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

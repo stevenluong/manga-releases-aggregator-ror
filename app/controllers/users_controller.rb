@@ -58,9 +58,6 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    if current_user.id!=1
-      redirect_to root_path
-		end
     @user = User.find(params[:id])
 
     respond_to do |format|
