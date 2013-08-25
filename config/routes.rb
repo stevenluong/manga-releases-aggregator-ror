@@ -12,6 +12,7 @@ RailsApp::Application.routes.draw do
 	#resources :home, only: [:about]
 	
   get "/home/about" 
+  get "/home/log" 
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
