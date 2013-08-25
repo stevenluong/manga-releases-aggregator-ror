@@ -9,6 +9,9 @@ RailsApp::Application.routes.draw do
 
   resources :chapters, only: [:index,:create]
 
+	#resources :home, only: [:about]
+	
+  get "/home/about" 
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
