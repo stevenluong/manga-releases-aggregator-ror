@@ -1,13 +1,13 @@
 RailsApp::Application.routes.draw do
   devise_for :users
 
-  resources :users
+  #resources :users
 
-  resources :subscriptions
+  resources :subscriptions, only: [:index,:create,:destroy]
 
-  resources :mangas
+  resources :mangas, only: [:index]
 
-  resources :chapters
+  resources :chapters, only: [:index]
 
   
   # The priority is based upon order of creation:
@@ -59,7 +59,7 @@ RailsApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'mangas#index'
+  root :to => 'subscriptions#index'
 
   # See how all your routes lay out with "rake routes"
 
