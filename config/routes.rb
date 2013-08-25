@@ -5,9 +5,9 @@ RailsApp::Application.routes.draw do
 
   resources :subscriptions, only: [:index,:create,:destroy]
 
-  resources :mangas, only: [:index]
+  resources :mangas, only: [:index,:create]
 
-  resources :chapters, only: [:index]
+  resources :chapters, only: [:index,:create]
 
   
   # The priority is based upon order of creation:
@@ -59,7 +59,7 @@ RailsApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'subscriptions#index'
+  root :to => 'mangas#index'
 
   # See how all your routes lay out with "rake routes"
 

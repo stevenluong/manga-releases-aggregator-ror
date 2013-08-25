@@ -1,9 +1,11 @@
 <h1>Last Releases</h1>
 
-<table>
+<table class="table table-striped table-bordered table-hover table-condensed">
   <tr>
+		<%if user_signed_in? && current_user.is_admin? %>
+    <th>MangaId</th>
+		<%end%>
     <th>Manga</th>
-    <th>Display name</th>
     <th>Last release</th>
     <th>Time</th>
 	<%if user_signed_in? %>
@@ -13,10 +15,12 @@
 
 <% @mangas.each do |manga| %>
   <tr>
+		<%if user_signed_in? && current_user.is_admin? %>
     <td><%= manga.name %></td>
+		<%end%>
     <td><%= manga.display_name %></td>
 		<%if manga.chapters.any?%>
-		<td><%=link_to manga.last_chapter.nb,manga.last_chapter.link%></td>
+		<td><%=link_to manga.last_chapter.nb,manga.last_chapter.link,:class=>"btn btn-link",:title=>"Read Chapter",:data => {:toggle=>"tooltip"}%></td>
 		<td><%=time_ago_in_words(manga.last_chapter.date) + " ago"%></td>
 		<%else%>
 		<td>No release</td>
@@ -24,9 +28,9 @@
 		<%end%>
 	<%if user_signed_in? %>
 		<%if !current_user.has_subscribe(manga)%>
-			<td><%= link_to 'Subscribe', subscriptions_path(:manga_id=>manga.id),:method=>:post %></td>
+			<td><%= link_to '', subscriptions_path(:manga_id=>manga.id),:method=>:post,:class=>"btn btn-default glyphicon glyphicon-star",:title=>"Subscribe",:data => {:toggle=>"tooltip"} %></td>
 	<%else%>
-		<td><%= link_to 'X', subscription_path(Subscription.get(current_user,manga)),:confirm=>"Unsubscribe ?",:method=>:delete%></td>
+		<td><%= link_to '', subscription_path(Subscription.get(current_user,manga)),:confirm=>"Unsubscribe ?",:method=>:delete,:class=>"btn btn-default glyphicon glyphicon-remove",:title=>"Unsubscribe",:data => {:toggle=>"tooltip"}%></td>
 	<%end%>
 	<%end%>
   </tr>
