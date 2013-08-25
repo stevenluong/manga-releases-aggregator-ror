@@ -3,7 +3,7 @@ class MangasController < ApplicationController
   # GET /mangas
   # GET /mangas.json
   def index
-    @mangas = Manga.all
+    @mangas = Manga.all.sort_by{|m| m.display_name}
 
     respond_to do |format|
       format.html # index.html.erb

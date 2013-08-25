@@ -4,7 +4,7 @@ class SubscriptionsController < ApplicationController
   # GET /subscriptions
   # GET /subscriptions.json
   def index
-    @subscriptions = current_user.subscriptions 
+    @subscriptions = current_user.subscriptions.select{|s| s.manga !=nil && s.manga.display_name != nil && s.manga.name!=nil}
 
     respond_to do |format|
       format.html # index.html.erb
