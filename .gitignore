@@ -1,5 +1,7 @@
 *.un~
 *.swp
+.DS_Store
+
 *.rbc
 *.sassc
 .sass-cache
