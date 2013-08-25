@@ -45,7 +45,7 @@ class ChaptersController < ApplicationController
 		@chapter.date = DateTime.now
     respond_to do |format|
       if @chapter.save
-        format.html { redirect_to @chapter, notice: 'Chapter was successfully created.' }
+        format.html { render json: @chapter, notice: 'Chapter was successfully created.' }
         format.json { render json: @chapter, status: :created, location: @chapter }
       else
         format.html { render action: "new" }

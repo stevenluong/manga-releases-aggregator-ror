@@ -45,7 +45,7 @@ class MangasController < ApplicationController
 
     respond_to do |format|
       if @manga.save
-        format.html { redirect_to @manga, notice: 'Manga was successfully created.' }
+        format.html { render json: @manga, notice: 'Manga was successfully created.' }
         format.json { render json: @manga, status: :created, location: @manga }
       else
         format.html { render action: "new" }
