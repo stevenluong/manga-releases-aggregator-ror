@@ -15,4 +15,12 @@ class User < ActiveRecord::Base
 	def has_subscribe(manga)
 		Subscription.exists?(:manga_id=>manga.id,:user_id=>id)
 	end
+	def as_json(options = { })
+    super((options || { }).merge({
+        :methods => [:manga_names]
+    }))
+	end
+	def manga_names
+		mangas.map{|manga| manga.display_name}
+	end
 end
