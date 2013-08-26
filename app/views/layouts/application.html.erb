@@ -20,6 +20,9 @@
 						<li <%if current_page? mangas_path%>class="active"<%end%>><%=link_to "Last Releases",mangas_path%></li>
 						<li <%if current_page? subscriptions_path%>class="active"<%end%>><%=link_to user_signed_in? ? "Subscriptions":"Subscribe !",subscriptions_path%></li>
 						<li <%if current_page? home_about_path%>class="active"<%end%>><%=link_to "About",home_about_path%></li>
+						<%if user_signed_in? && current_user.is_admin? %>
+						<li <%if current_page? home_about_path%>class="active"<%end%>><%=link_to "Log",home_log_path%></li>
+				    <%end%>
           </ul>
 					<ul class="nav navbar-nav navbar-right">
 						<%if !user_signed_in?%>
