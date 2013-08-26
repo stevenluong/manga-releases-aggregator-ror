@@ -10,17 +10,7 @@
   </tr>
 
 <% @subscriptions.each do |subscription| %>
-  <tr>
-    <td><%= subscription.manga.display_name %></td>
-		<%if subscription.manga.chapters.any?%>
-			<td><%=link_to subscription.manga.last_chapter.nb,subscription.manga.last_chapter.link,:class=>"btn btn-link",:title=>"Read Chapter",:data => {:toggle=>"tooltip"}%></td>
-		<td><%=time_ago_in_words(subscription.manga.last_chapter.date) + " ago"%></td>
-    <%else%>
-		<td>No release</td>
-		<td></td>
-		<%end%>
-		<td><%= link_to '', subscription_path(subscription),:confirm=>"Unsubscribe ?",:method=>:delete,:class=>"btn btn-default glyphicon glyphicon-remove",:title=>"Unsubscribe",:data => {:toggle=>"tooltip"}%></td>
-  </tr>
+				<%=render :partial=>"mangas/manga", :object=>subscription.manga%>
 <% end %>
 </table>
 
