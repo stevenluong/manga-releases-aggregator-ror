@@ -4,7 +4,7 @@ Manga Releases Aggregator (MRA) is a simple app
 that allows you to subscribe to different mangas 
 and to be warned when new releases are posted.
 
-[Use the app](https://www.slapps.fr/manga-release-aggregator/)
+[Use the app](https://www.slapps.fr/manga-releases-aggregator/)
 
 Technologies
 ------------
