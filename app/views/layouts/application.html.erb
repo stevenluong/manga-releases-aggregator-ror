@@ -10,6 +10,7 @@
 	<link href="<%=%>" rel="stylesheet" media="screen">
 </head>
 <body>
+<div id="wrap">
 	<div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -44,6 +45,12 @@
 <div class="alert alert-danger"><%= alert %></div>
 		<%end%>
 <%= yield %>
+</div> <!-- /.wrap-->
+<div id = "footer">
+				<div class="container">
+								<p style="text-align:center"><a href="http://www.steven-luong.com">&copy; Steven Luong 2013</a></p>
+	      </div>
+</div>
 </div><!-- /.container -->
 <script>
 	$(".container").tooltip({
