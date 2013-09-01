@@ -13,6 +13,7 @@ RailsApp::Application.routes.draw do
 	
   get "/home/about" 
   get "/home/log" 
+  get "/home/admin" 
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
