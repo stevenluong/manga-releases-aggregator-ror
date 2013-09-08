@@ -27,11 +27,11 @@
           </ul>
 					<ul class="nav navbar-nav navbar-right">
 						<%if !user_signed_in?%>
-						<li><%= link_to 'Sign in', new_user_session_path %></li>
-						<li><%= link_to "Sign up",new_user_registration_path%></li>
+						<li><%= link_to 'Log In', new_user_session_path %></li>
+						<li><%= link_to "Sign Up",new_user_registration_path%></li>
 						<%else%>
 						<li>Logged as <%=current_user.email%></li>
-						<li><%=link_to "Sign Out",destroy_user_session_path,:method=>:delete%></li>
+						<li><%=link_to "Log Out",destroy_user_session_path,:method=>:delete%></li>
 						<%end%>
 					</ul>
         </div><!--/.nav-collapse -->
@@ -45,13 +45,13 @@
 <div class="alert alert-danger"><%= alert %></div>
 		<%end%>
 <%= yield %>
+</div><!-- /.container -->
 </div> <!-- /.wrap-->
 <div id = "footer">
 				<div class="container">
-								<p style="text-align:center"><a href="http://www.steven-luong.com">&copy; Steven Luong 2013</a></p>
+								<p class="credit"><a href="http://www.steven-luong.com">&copy; Steven Luong 2013</a></p>
 	      </div>
 </div>
-</div><!-- /.container -->
 <script>
 	$(".container").tooltip({
 		selector:"[data-toggle=tooltip]",
